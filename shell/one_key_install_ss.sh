@@ -16,7 +16,7 @@ git clone -b master https://github.com/malaohu/tua-ss-manyuser $SSDIR
 chmod 775 $SSDIR/shell/checkProcess.sh
 chmod 775 $SSDIR/shell/ssstart.sh
 echo "add check ss status shell ..."
-echo "*/30 * * * * bash """$SSDIR"""/shell/checkProcess.sh \"server.py\" \""""$SSDIR"""/shell/ssstart.sh """$SSDIR""\"" >> /var/spool/cron/root
+echo "*/30 * * * * bash "$SSDIR"/shell/checkProcess.sh \"server.py\" \""$SSDIR"/shell/ssstart.sh "$SSDIR"\"" >> /var/spool/cron/root
 vi $SSDIR/shadowsocks/Config.py
 echo $SSDIR + "/shell/ssstart.sh" >> /etc/rc.local
 
