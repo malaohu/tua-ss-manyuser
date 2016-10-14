@@ -11,7 +11,7 @@ pip install cymysql
 
 echo "download shadowsocks  ..."
 
-git clone -b master https://github.com/malaohu/tua-ss-manyuser
+git clone -b master https://github.com/malaohu/tua-ss-manyuser $MYDIR
 chmod 775 $MYDIR/tua-ss-manyuser/shell/checkProcess.sh
 chmod 775 $MYDIR/tua-ss-manyuser/shell/ssstart.sh
 echo "add check ss status shell"
