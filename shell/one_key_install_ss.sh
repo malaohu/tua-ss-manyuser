@@ -1,6 +1,7 @@
 #! /bin/bash
 echo "install the required environment ..."
 MYDIR=`pwd`
+SSDIR= $MYDIR + "/a"
 yum -y install git m2crypto
 wget https://bootstrap.pypa.io/ez_setup.py -O - | python
 wget https://pypi.python.org/packages/source/p/pip/pip-6.0.7.tar.gz
@@ -11,13 +12,13 @@ pip install cymysql
 
 echo "download shadowsocks  ..."
 
-git clone -b master https://github.com/malaohu/tua-ss-manyuser $MYDIR/a
-chmod 775 $MYDIR/a/tua-ss-manyuser/shell/checkProcess.sh
-chmod 775 $MYDIR/a/tua-ss-manyuser/shell/ssstart.sh
+git clone -b master https://github.com/malaohu/tua-ss-manyuser $SSDIR
+chmod 775 $SSDIR/tua-ss-manyuser/shell/checkProcess.sh
+chmod 775 $SSDIR/tua-ss-manyuser/shell/ssstart.sh
 echo "add check ss status shell ..."
-echo "*/30 * * * * bash "+ $MYDIR +"/a/tua-ss-manyuser/shell/checkProcess.sh \"server.py\" \""+ $MYDIR +"/a/shell/ssstart.sh\"" >> /var/spool/cron/root
-vi $MYDIR/a/tua-ss-manyuser/shadowsocks/Config.py
-echo $MYDIR + "/a/tua-ss-manyuser/shell/ssstart.sh" >> /etc/rc.local
+echo "*/30 * * * * bash "+ $SSDIR +"/shell/checkProcess.sh \"server.py\" \""+ $SSDIR +"/shell/ssstart.sh\"" >> /var/spool/cron/root
+vi $SSDIR/shadowsocks/Config.py
+echo $SSDIR + "/shell/ssstart.sh" >> /etc/rc.local
 
 echo "restart crond  ..."
 service crond reload
