@@ -9,3 +9,23 @@
 
 64.137.170.122	piaohua.com
 64.137.170.122	www.piaohua.com
+
+64.137.170.122	bitsnoop.com
+64.137.170.122	www.bitsnoop.com
+
+64.137.170.122	btkitty.org
+64.137.170.122	www.btkitty.org
+
+64.137.170.122  thepiratebay.ee
+64.137.170.122  www.thepiratebay.ee
+
+64.137.170.122  btdigg.org
+64.137.170.122  www.btdigg.org
+
+64.137.170.122  ulozto.net
+64.137.170.122  www.ulozto.net
+
+64.137.170.122  rutracker.org
+64.137.170.122  www.rutracker.org
+
+
