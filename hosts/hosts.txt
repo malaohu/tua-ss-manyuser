@@ -28,4 +28,8 @@
 64.137.170.122  rutracker.org
 64.137.170.122  www.rutracker.org
 
+64.137.170.122	account.sonyentertainmentnetwork.com
+64.137.170.122	auth.np.ac.playstation.net
+64.137.170.122	auth.api.sonyentertainmentnetwork.com
+64.137.170.122	auth.api.np.ac.playstation.net
 
