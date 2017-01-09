@@ -10,7 +10,9 @@ CREATE TABLE `user_traffic` (
   `date` date NOT NULL,
   `ip` varchar(100) DEFAULT NULL,
   `u` bigint(20) DEFAULT '0',
+  `last_u` bigint(20) DEFAULT NULL,
   `d` bigint(20) DEFAULT '0',
+  `last_d` bigint(20) DEFAULT NULL,
   `t` int(11) DEFAULT '0',
   PRIMARY KEY (`port`,`date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -19,13 +21,15 @@ CREATE TABLE `user_traffic` (
 #创建存储过程
 CREATE PROCEDURE build_day_traffic()
 BEGIN
-INSERT into user_traffic (`port`, `date`, ip, u, d, t)
+INSERT into user_traffic (`port`, `date`, ip, u, last_u, d, last_d, t)
 SELECT
 	a.`port`,
 	CURRENT_DATE(),
 	'' AS ip,
-	(a.u - IFNULL(b.u, 0)),
-	(a.d - IFNULL(b.d, 0)),
+	(a.u - IFNULL(b.last_u, 0)),
+	a.u,
+	(a.d - IFNULL(b.last_d, 0)),
+	a.d,
 	a.t
 FROM
 	user a
