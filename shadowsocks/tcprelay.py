@@ -98,6 +98,7 @@ class TCPRelayHandler(object):
         self._upstream_status = WAIT_STATUS_READING
         self._downstream_status = WAIT_STATUS_INIT
         self._remote_address = None
+        self._client_address = local_sock.getpeername()[:2]
         if is_local:
             self._chosen_server = self._get_a_server()
         fd_to_handlers[local_sock.fileno()] = self
@@ -259,7 +260,7 @@ class TCPRelayHandler(object):
             if header_result is None:
                 raise Exception('[%s]can not parse header' % (self._config['server_port']))
             addrtype, remote_addr, remote_port, header_length = header_result
-            logging.info('[%s] connecting %s:%d' % (str(self._config['server_port']),remote_addr, remote_port))
+            logging.info('[%s] [%s:%s] connecting %s:%d' % (str(self._config['server_port']),self._client_address[0], self._client_address[1],remote_addr, remote_port))
             self._remote_address = (remote_addr, remote_port)
             # pause reading
             self._update_stream(STREAM_UP, WAIT_STATUS_WRITING)
