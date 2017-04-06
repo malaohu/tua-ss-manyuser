@@ -261,6 +261,10 @@ class TCPRelayHandler(object):
                 raise Exception('[%s]can not parse header' % (self._config['server_port']))
             addrtype, remote_addr, remote_port, header_length = header_result
             logging.info('[%s] [%s:%s] connecting %s:%d' % (str(self._config['server_port']),self._client_address[0], self._client_address[1],remote_addr, remote_port))
+            #black_list = ['youtube.com','www.youtube.com','au.youtube.com','ca.youtube.com','de.youtube.com','jp.youtube.com','ru.youtube.com','uk.youtube.com','tw.youtube.com','ads.youtube.com','www.youtube-nocookie.com','m.youtube.com','youtu.be','gdata.youtube.com','stage.gdata.youtube.com','s.youtube.com','accounts.youtube.com','img.youtube.com','help.youtube.com','upload.youtube.com','insight.youtube.com','apiblog.youtube.com','i.ytimg.com','i1.ytimg.com','i2.ytimg.com','i3.ytimg.com','i4.ytimg.com','i9.ytimg.com','s.ytimg.com','manifest.googlevideo.com','onetoday.google.com','notifications.google.com']
+            #if remote_addr.lower() in black_list:
+            #    logging.info(str(self._config['server_port']));
+            #    return
             self._remote_address = (remote_addr, remote_port)
             # pause reading
             self._update_stream(STREAM_UP, WAIT_STATUS_WRITING)
