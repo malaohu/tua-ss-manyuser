@@ -8,3 +8,9 @@ wget --no-check-certificate https://raw.githubusercontent.com/malaohu/tua-ss-man
 chmod 775 one_key_install_ss.sh
 ./one_key_install_ss.sh
 ```
+系统一些设置
+```
+wget --no-check-certificate https://raw.githubusercontent.com/malaohu/tua-ss-manyuser/master/shell/basesetos.sh
+chmod 775 basesetos.sh
+./basesetos.sh
+```
